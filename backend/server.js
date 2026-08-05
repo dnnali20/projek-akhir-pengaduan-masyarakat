@@ -36,8 +36,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    // Izinkan beberapa origin dev agar socket.io tidak diblokir CORS
-    origin: ["http://localhost:5173", "http://localhost:5174"],
+    origin: process.env.CLIENT_URL || "https://projek-akhir-pengaduan-masyarakat-h.vercel.app/",
     credentials: true,
   },
 });

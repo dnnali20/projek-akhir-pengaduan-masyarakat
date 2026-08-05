@@ -1,6 +1,11 @@
 const mysql = require("mysql2");
 require("dotenv").config();
 
+console.log(process.env.DB_HOST);
+console.log(process.env.DB_USER);
+console.log(process.env.DB_PASSWORD);
+console.log(process.env.DB_NAME);
+
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -10,7 +15,7 @@ const db = mysql.createConnection({
 
 db.connect((err) => {
   if (err) {
-    console.log("Database gagal terkoneksi:", err);
+    console.log(err);
   } else {
     console.log("Database berhasil terkoneksi");
   }
