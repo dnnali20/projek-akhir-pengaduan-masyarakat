@@ -53,6 +53,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(5000, () => {
-  console.log("Server berjalan di port 5000");
+server.listen(PORT, () => {
+  console.log(`Server berjalan di port ${PORT}`);
 });

@@ -95,21 +95,15 @@ exports.createLaporan = (req, res) => {
     });
   }
 
-  // Wajib isi lokasi (Google Maps)
-  // Wajib minimal latitude & longitude (address sebagai pendukung)
-  if (
-    latitude === undefined ||
-    latitude === null ||
-    latitude === "" ||
-    longitude === undefined ||
-    longitude === null ||
-    longitude === ""
-  ) {
+  if (!location_address) {
     return res.status(400).json({
-      message: "Lokasi laporan (latitude, longitude, atau address) wajib diisi",
+      message: "Alamat lokasi laporan wajib diisi",
     });
   }
 
+  // latitude & longitude bersifat opsional
+  const lat = latitude || null;
+  const lng = longitude || null;
 
   const query = `
   INSERT INTO laporan 
@@ -119,8 +113,8 @@ exports.createLaporan = (req, res) => {
 
   db.query(
     query,
-    [user_id, category_id, title, description, image, "pending", latitude, longitude, location_address],
-    (err) => {
+    [user_id, category_id, title, description, image, "pending", lat, lng, location_address],
+    (err, result) => {
       if (err) {
         return res.status(500).json({
           message: "Gagal membuat laporan",

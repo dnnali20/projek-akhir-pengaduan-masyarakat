@@ -1,9 +1,11 @@
-- [x] Update backend (memastikan endpoint /laporan bisa ditampilkan sesuai kebutuhan admin & user)
-- [ ] Update frontend Dashboard agar menampilkan 2 tab/filter untuk user:
+# TODO - Perbaikan Laporan (Hapus Latitude/Longitude)
 
-  - [ ] Tab 1: “Laporan Saya” (semua status milik user)
-  - [ ] Tab 2: “Publik” (laporan approved dari user lain)
-- [ ] Gunakan realtime update yang sama saat laporan dibuat/diupdate
-- [ ] Testing manual: user membuat laporan pending, lihat muncul di tab Laporan Saya, dan tidak muncul di tab Publik sampai approved
-- [ ] Testing manual: admin/super_admin dashboard menampilkan semua laporan sesuai kebutuhan awal
+## [x] 1. Backend: `backend/controllers/laporanController.js`
+   - [x] Hapus validasi wajib latitude & longitude
+   - [x] Jadikan latitude & longitude opsional (nullable) di INSERT query
+   - [x] Ganti validasi dengan wajib `location_address` saja
 
+## [x] 2. Frontend Mobile: `web/src/mobile/MobileCreateLaporanForm.jsx`
+   - [x] Hapus setForm untuk latitude/longitude di fungsi `getCurrentLocation`
+   - [x] Hapus tampilan koordinat lat/lng
+   - [x] Ubah geolocation hanya mengisi `location_address` dengan nama lokasi

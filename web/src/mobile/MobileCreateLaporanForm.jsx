@@ -14,11 +14,10 @@ export default function MobileCreateLaporanForm({
 
     navigator.geolocation.getCurrentPosition(
       (position) => {
+        const { latitude, longitude } = position.coords;
         setForm({
           ...form,
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-          location_address: `Lat: ${position.coords.latitude}, Lng: ${position.coords.longitude}`,
+          location_address: `Lat: ${latitude}, Lng: ${longitude}`,
         });
       },
       () => {
@@ -134,9 +133,9 @@ export default function MobileCreateLaporanForm({
             }
           />
 
-          {(form.latitude && form.longitude) && (
+          {form.location_address && (
             <p className="text-sm text-slate-500">
-              Lat: {form.latitude}, Lng: {form.longitude}
+              Lokasi: {form.location_address}
             </p>
           )}
         </div>

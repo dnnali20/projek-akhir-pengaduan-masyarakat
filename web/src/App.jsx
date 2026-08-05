@@ -6,7 +6,7 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import CreateLaporan from "./pages/CreateLaporan";
 import DetailLaporan from "./pages/DetailLaporan";
-import Users from "./pages/Users";
+import Users from "./pages/users";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Categories from "./pages/Categories";
 import RiwayatLaporan from "./pages/RiwayatLaporan";
