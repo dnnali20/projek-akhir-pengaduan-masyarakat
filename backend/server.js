@@ -38,9 +38,11 @@ const { Server } = require("socket.io");
 const server = http.createServer(app);
 
 
+const allowedOrigin = process.env.CLIENT_URL;
+
 const io = new Server(server, {
   cors: {
-    origin: process.env.CLIENT_URL || "https://projek-akhir-pengaduan-masyarakat-h.vercel.app",
+    origin: allowedOrigin,
     credentials: true,
   },
 });
