@@ -19,6 +19,12 @@ app.get("/", (req, res) => {
   res.send("API Pengaduan Masyarakat Berjalan");
 });
 
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "ok",
+  });
+});
+
 app.use("/api/auth", authRoutes);
 app.use("/api/laporan", laporanRoutes);
 app.use("/api/categories", categoryRoutes);
