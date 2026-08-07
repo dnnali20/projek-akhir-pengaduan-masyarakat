@@ -319,7 +319,7 @@ export default function Dashboard() {
               >
                 {item.image ? (
                   <img
-                    src={`http://localhost:5000/uploads/${item.image}`}
+                    src={`${import.meta.env.VITE_API_URL.replace("/api", "")}/uploads/${item.image}`}
                     alt={item.title}
                     className="h-52 w-full object-cover"
                   />

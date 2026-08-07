@@ -158,7 +158,7 @@ export default function Profile() {
       : "Pemula";
 
   const photoUrl = user?.profile_photo
-    ? `http://localhost:5000/uploads/${user.profile_photo}`
+    ? import.meta.env.VITE_API_URL.replace("/api", "")
     : null;
 
   return (

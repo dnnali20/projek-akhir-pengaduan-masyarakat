@@ -148,7 +148,7 @@ export default function DetailLaporan() {
         <div className="hidden md:block bg-white rounded-3xl shadow overflow-hidden">
           {laporan.image ? (
             <img
-              src={`http://localhost:5000/uploads/${laporan.image}`}
+              src={`${import.meta.env.VITE_API_URL.replace("/api", "")}/uploads/...`}
               alt={laporan.title}
               className="w-full h-[400px] object-cover"
             />
@@ -362,7 +362,7 @@ export default function DetailLaporan() {
                 </h3>
 
                 <img
-                  src={`http://localhost:5000/uploads/${laporan.proof_image}`}
+                  src={`${import.meta.env.VITE_API_URL.replace("/api", "")}/uploads/...`}
                   alt="Bukti"
                   className="w-full max-h-[500px] object-cover rounded-2xl border"
                 />
