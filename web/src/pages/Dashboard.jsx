@@ -321,13 +321,10 @@ export default function Dashboard() {
                 {item.image ? (
                   
                   <img
-  src={`${API_URL}/uploads/${item.image}`}
-  alt={item.title}
-  className="h-52 w-full object-cover"
-  onError={(e) => {
-    console.log("Gagal load:", e.target.src);
-  }}
-/>
+                    src={`${API_URL}/uploads/${item.image}`}
+                    alt={item.title}
+                    className="h-52 w-full object-cover"
+                  />
                 ) : (
                   <div className="h-52 bg-gray-100 flex items-center justify-center">
                     <p className="text-gray-500">Tidak ada gambar</p>
