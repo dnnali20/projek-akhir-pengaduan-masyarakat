@@ -25,7 +25,10 @@ exports.getAllLaporan = (req, res) => {
 
   db.query(query, (err, result) => {
     if (err) {
-      return res.status(500).json({ message: "Gagal mengambil data laporan" });
+      return res.status(500).json({
+    message: "Gagal mengambil data laporan",
+    error: err.sqlMessage,
+  });
     }
 
     res.json(result);
