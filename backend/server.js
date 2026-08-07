@@ -2,6 +2,15 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 
+const fs = require("fs");
+const path = require("path");
+
+const uploadPath = path.join(__dirname, "uploads");
+
+if (!fs.existsSync(uploadPath)) {
+  fs.mkdirSync(uploadPath, { recursive: true });
+}
+
 const authRoutes = require("./routes/authRoutes");
 const laporanRoutes = require("./routes/laporanRoutes");
 const categoryRoutes = require("./routes/categoryRoutes");
@@ -9,11 +18,13 @@ const commentRoutes = require("./routes/commentRoutes");
 const userRoutes = require("./routes/userRoutes");
 const activityLogRoutes = require("./routes/activityLogRoutes");
 
+
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use("/uploads", express.static("uploads"));
+
+app.use("/uploads", express.static(uploadPath));
 
 app.get("/", (req, res) => {
   res.send("API Pengaduan Masyarakat Berjalan");

@@ -25,6 +25,7 @@ export default function Dashboard() {
   const [filterStatus, setFilterStatus] = useState("");
   const [filterCategory, setFilterCategory] = useState("");
   const [showMobileFilter, setShowMobileFilter] = useState(false);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const user = JSON.parse(sessionStorage.getItem("user"));
 
@@ -318,8 +319,9 @@ export default function Dashboard() {
                 className="bg-white rounded-3xl shadow-md overflow-hidden hover:shadow-xl transition border border-gray-100"
               >
                 {item.image ? (
+                  
                   <img
-                    src={`${import.meta.env.VITE_API_URL.replace("/api", "")}/uploads/${item.image}`}
+                    src={`${API_URL}/uploads/${item.image}`}
                     alt={item.title}
                     className="h-52 w-full object-cover"
                   />
