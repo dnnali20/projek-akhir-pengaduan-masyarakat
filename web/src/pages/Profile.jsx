@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 import Layout from "../components/Layout";
-import API from "../api/api";
+import API, { API_URL } from "../api/api";
 import MobileProfileHeader from "../mobile/MobileProfileHeader";
 import MobileProfileInfo from "../mobile/MobileProfileInfo";
 
@@ -186,7 +186,7 @@ export default function Profile() {
             <div className="w-32 h-32 rounded-full bg-white text-blue-700 flex items-center justify-center text-5xl font-bold shadow-lg overflow-hidden">
               {photoUrl ? (
                 <img
-                  src={photoUrl}
+                  src={`${API_URL}/uploads/${item.image}`}
                   alt="Profile"
                   className="w-full h-full object-cover"
                 />

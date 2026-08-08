@@ -23,7 +23,7 @@ import {
 
 import toast, { Toaster } from "react-hot-toast";
 import Layout from "../components/Layout";
-import API from "../api/api";
+import API, { API_URL } from "../api/api";
 import useLaporanRealtime from "../hooks/useLaporanRealtime";
 import MobileRiwayatCard from "../mobile/MobileRiwayatCard";
 
@@ -218,7 +218,7 @@ export default function RiwayatLaporan() {
               >
                 {item.image ? (
                   <img
-                    src={import.meta.env.VITE_API_URL.replace("/api", "")}
+                      src={`${API_URL}/uploads/${item.image}`}
                     alt={item.title}
                     className="h-52 w-full object-cover"
                   />
