@@ -12,12 +12,15 @@ import {
 } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 import Layout from "../components/Layout";
-import API from "../api/api";
+import API, { API_URL } from "../api/api";
 import useLaporanRealtime from "../hooks/useLaporanRealtime";
 import MobileDashboardCard from "../mobile/MobileDashboardCard";
 import MobileHeader from "../mobile/MobileHeader";
 import MobileStatCard from "../mobile/MobileStatCard";
 import MobileFilterDrawer from "../mobile/MobileFilterDrawer";
+import API, { API_URL } from "../api/api";
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function Dashboard() {
   const [laporan, setLaporan] = useState([]);
