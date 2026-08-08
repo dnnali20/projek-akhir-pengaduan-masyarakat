@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 
 import Layout from "../components/Layout";
-import API, { API_URL } from "../api/api";
+import API from "../api/api";
 import useCommentsRealtime from "../hooks/useCommentsRealtime";
 import { exportLaporanPdf } from "../utils/exportLaporanPdf";
 import MobileDetailHeader from "../mobile/MobileDetailHeader";
@@ -148,7 +148,7 @@ export default function DetailLaporan() {
         <div className="hidden md:block bg-white rounded-3xl shadow overflow-hidden">
           {laporan.image ? (
             <img
-               src={`${API_URL}/uploads/${item.image}`}
+               src={`${import.meta.env.VITE_API_URL.replace("/api", "")}/uploads/${laporan.image}`}
               alt={laporan.title}
               className="w-full h-[400px] object-cover"
             />
@@ -362,7 +362,7 @@ export default function DetailLaporan() {
                 </h3>
 
                 <img
-                    src={`${API_URL}/uploads/${item.image}`}
+                    src={`${import.meta.env.VITE_API_URL.replace("/api", "")}/uploads/${laporan.proof_image}`}
                   alt="Bukti"
                   className="w-full max-h-[500px] object-cover rounded-2xl border"
                 />

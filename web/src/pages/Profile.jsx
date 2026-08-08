@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 import Layout from "../components/Layout";
-import API, { API_URL } from "../api/api";
+import API from "../api/api";
 import MobileProfileHeader from "../mobile/MobileProfileHeader";
 import MobileProfileInfo from "../mobile/MobileProfileInfo";
 
@@ -158,7 +158,7 @@ export default function Profile() {
       : "Pemula";
 
   const photoUrl = user?.profile_photo
-    ? import.meta.env.VITE_API_URL.replace("/api", "")
+    ? `${import.meta.env.VITE_API_URL.replace("/api", "")}/uploads/${user.profile_photo}`
     : null;
 
   return (
@@ -186,7 +186,7 @@ export default function Profile() {
             <div className="w-32 h-32 rounded-full bg-white text-blue-700 flex items-center justify-center text-5xl font-bold shadow-lg overflow-hidden">
               {photoUrl ? (
                 <img
-                  src={`${API_URL}/uploads/${item.image}`}
+                  src={photoUrl}
                   alt="Profile"
                   className="w-full h-full object-cover"
                 />

@@ -6,7 +6,7 @@ export default function MobileDetailHeader({ laporan, formatDate }) {
       <div className="bg-white rounded-3xl shadow overflow-hidden">
         {laporan?.image ? (
           <img
-            src={`http://localhost:5000/uploads/${laporan.image}`}
+            src={`${import.meta.env.VITE_API_URL.replace("/api", "")}/uploads/${laporan.image}`}
             alt={laporan.title}
             className="w-full h-64 object-cover"
           />

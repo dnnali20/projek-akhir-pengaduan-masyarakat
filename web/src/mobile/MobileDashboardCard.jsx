@@ -9,7 +9,7 @@ export default function MobileDashboardCard({
         <div className="bg-white rounded-3xl shadow-md overflow-hidden hover:shadow-xl transition border border-gray-100">
             {item.image ? (
                 <img
-                    src={`http://localhost:5000/uploads/${item.image}`}
+                    src={`${import.meta.env.VITE_API_URL.replace("/api", "")}/uploads/${item.image}`}
                     alt={item.title}
                     className="h-44 w-full object-cover"
                 />
